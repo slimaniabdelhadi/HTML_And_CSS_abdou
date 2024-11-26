@@ -5,6 +5,9 @@
   --green-color: #22c55e;
   --red-color: #f44336;
   --grey-color: #888;
+  --width-sidebar: 150px ;
+  --notification-color:var(--red-color);
+  --main-duration: 0.5s;
 }
 * {
   box-sizing: border-box;
@@ -23,17 +26,18 @@ ul {
   list-style: none;
   padding: 0;
 }
+
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
   background-color: white;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: var(--blue-color);
+  background-color: #398ced
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--blue-alt-color);
+  background-color: #0976f3;
 }
 .page {
   background-color: #f1f5f9;
@@ -41,11 +45,12 @@ ul {
 }
 /* Start Sidebar */
 .sidebar {
-  width: 185px;
+  width: var(--width-sidebar);
+  padding: 20px 5px;
   box-shadow: 0 0 10px #ddd;
   height: 100vh;
-  position: fixed;
-  z-index: 10;
+  overflow: auto;
+  text-align: center;
 }
 .sidebar > h3 {
   margin-bottom: 50px;
@@ -71,16 +76,18 @@ ul {
   border: 4px solid white;
 }
 .sidebar ul li a {
+  flex-direction: column ;
   transition: 0.3s;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 .sidebar ul li a:hover,
 .sidebar ul li a.active {
-  background-color: #f6f6f6;
+  background-color: #ccc;
 }
 .sidebar ul li a span {
   font-size: 14px;
-  margin-left: 10px;
+  
 }
 @media (max-width: 767px) {
   .sidebar {
@@ -102,12 +109,16 @@ ul {
 /* End Sidebar */
 /* Start Content */
 .content {
-  overflow: hidden;
-  width: calc(100% - 185px);
-  margin-left: 185px;
+  overflow-x: hidden;
+  height: 100vh;
+  /* width: calc(100% - var(--width-sidebar));
+  margin-left: var(--width-sidebar); */
 }
 .head{
   height: 50px;
+  position: sticky;
+  z-index: 10;
+  top: 0;
 }
 .head .search::before {
   font-family: var(--fa-style-family-classic);
@@ -124,7 +135,7 @@ ul {
  .head .search{
   cursor: pointer;
  }
- .head .search  :hover{
+ .head .search :hover{
   width: 200px;
  }
 .head .search input {
@@ -146,20 +157,113 @@ ul {
 .head .search input:focus::placeholder {
   opacity: 0;
 }
+.head .icons{
+  position: relative;
+  cursor: pointer;
+}
+.head .icons .notification{
+  margin-right: 10px;
+}
 .head .icons .notification::before {
   content: "";
   position: absolute;
   width: 10px;
   height: 10px;
-  background-color: var(--red-color);
+  z-index: 1;
+  background-color: var(--notification-color);
   border-radius: 50%;
   right: -5px;
   top: -5px;
 }
+
+
+.head .icons ul {
+  display: none;
+  background-color: #DDD;
+  position: absolute;
+  padding: 5px;
+  right: -6px;
+  margin: 0;
+  color: #333;
+  min-width: 400px;
+  cursor: pointer;
+  top: calc(100% + 15px);
+  border-radius: 3px;
+}
+.head .icons .notification:after{
+  content: "";
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: -1;
+  transition: var(--main-duration);
+  transform: translate(50%, -50%);
+}
+.head .icons .notification:hover::after{
+  background-color: #999;
+    opacity: 20%;
+}
+.head .icons .notification:hover ul:has(li){
+  display: block;
+}
+.head .icons ul li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 3px;
+  transition: var(--main-duration);
+}
+.head .icons ul li a{
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+.head .icons ul li span{
+  position: relative;
+  margin-right: 15px;
+  padding: 0;
+  font-size: 12px;
+  
+}
+.head .icons ul li span::before{
+  content: "";
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: 2;
+  transition: var(--main-duration);
+  transform: translate(50%, -50%);
+}
+.head .icons ul li span:hover::before{
+  background-color: #333 ;
+  opacity: 20%;
+}
+.head .icons ul li:hover{
+  background-color: #eee;
+}
+.head .icons ul li:not(:last-child)  {
+  border-bottom: 1px solid #CCC;
+}
+.head .icons ul::before {
+  content: "";
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #DDD transparent;
+  position: absolute;
+  right: 5px;
+  top: -20px;
+}
 .head .icons img {
   width: 32px;
   height: 32px;
-  margin-left: 15px;
+  margin-left: 10px;
 }
 .page h1 {
   margin: 20px 20px 40px;
@@ -180,6 +284,7 @@ ul {
   background-color: black;
   width: 40px;
 }
+
 .wrapper {
   grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   margin-left: 20px;
@@ -1189,3 +1294,14 @@ ul {
   }
 }
 /* End Animation */
+
+
+/* style abdelhadi */
+.iconsDadi{
+  color: #78a75a;
+  margin: 5px;
+  cursor: pointer;
+}
+.iconsDadi:hover{
+  color: #70db2e;
+}
