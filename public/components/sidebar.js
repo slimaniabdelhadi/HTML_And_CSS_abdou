@@ -59,7 +59,7 @@ function head() {
             <input class="p-10" type="search" placeholder="Type A Keyword" />
           </div> -->
           <div>
-            <i  class="fa-solid fa-house iconsDadi"></i>
+            <i title="maison page"  class="fa-solid fa-house iconsDadi"></i>
             <i class="fa-solid fa-screwdriver-wrench iconsDadi"></i>
           </div>
           <div class="icons d-flex align-center">
@@ -77,7 +77,7 @@ function head() {
               </ul>
             </span>
             <span>abdelhadi slimani</span>
-            <img src="../imgs/avatar.png" alt="" />
+            <img src="../imgs/avatar.png" alt=""  />
           </div>
         </div>
         <!-- End Head -->`

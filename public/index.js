@@ -1,11 +1,11 @@
-import { sidebar, head, gebi } from "./sidebar.js";
+import { sidebar, head, gebi } from "./components/sidebar.js";
+
+let elemnts = { sidebar : sidebar(), head : head()}
 
 
 
-
-
-gebi('sidebar').innerHTML = sidebar();
-gebi('headPg').innerHTML = head();
+gebi('sidebar').innerHTML = elemnts.sidebar;
+gebi('headPg').innerHTML = elemnts.head;
 
 
 
@@ -15,5 +15,6 @@ sidebarElms.forEach((el) => {
         let lien = el.getAttribute("data-lien")
         sidebarElms.forEach((elm) => { elm.classList.remove("active"); })
         el.classList.add('active')
+        //gebi('contentPg').innerHTML = elemnts.head
     })
 })
