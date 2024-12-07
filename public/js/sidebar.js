@@ -1,4 +1,3 @@
-
 function sidebar() {
   return ` <h3 class="p-relative txt-c mt-0">Elzero</h3>
     <ul>
@@ -9,8 +8,8 @@ function sidebar() {
         </a>
       </li>
       <li>
-        <a class="d-flex align-center fs-14 c-black rad-6 p-10" >
-          <i class="fa-solid fa-gear fa-fw"></i>
+        <a class="d-flex align-center fs-14 c-black rad-6 p-10 " >
+          <i class="settings"></i>
           <span>Settings</span>
         </a>
       </li>
@@ -50,7 +49,7 @@ function sidebar() {
           <span>Plans</span>
         </a>
       </li>
-    </ul>`
+    </ul>`;
 }
 
 function head() {
@@ -59,12 +58,11 @@ function head() {
             <input class="p-10" type="search" placeholder="Type A Keyword" />
           </div> -->
           <div>
-            <i title="maison page"  class="fa-solid fa-house iconsDadi"></i>
-            <i class="fa-solid fa-screwdriver-wrench iconsDadi"></i>
+            <i title="maison page"  class="hosse  iconsDadi"></i>
+            <i class="tools iconsDadi"></i>
           </div>
           <div class="icons d-flex align-center">
             <span class="notification p-relative">
-              <i class="fa-regular fa-bell fa-lg"></i>
                 <ul>
                 <li><a >Services  hfghgh  afggjh</a><span onclick="console.log('click');
                 ">X</span></li>
@@ -77,16 +75,16 @@ function head() {
               </ul>
             </span>
             <span>abdelhadi slimani</span>
-            <img src="../imgs/avatar.png" alt=""  />
+            <span class="avatar"></span>
+            <!-- <img src="../imgs/svgs/avatar-vectormaker-co.svg" alt=""  />-->
           </div>
         </div>
-        <!-- End Head -->`
-  return elmnt
+        <!-- End Head -->`;
+  return elmnt;
 }
-
 
 function gebi(pr) {
-  return document.getElementById(pr)
+  return document.getElementById(pr);
 }
 
-export { sidebar, head, gebi }
+//export { sidebar, head, gebi };
